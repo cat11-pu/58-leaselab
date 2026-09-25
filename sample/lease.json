@@ -1,0 +1,13 @@
+{
+  "conflict_code": "E_LEASE_HELD",
+  "ttl": 4,
+  "now": 9,
+  "progress": {"t0": 1},
+  "steps": [
+    {"holder": "h0", "task": "t0", "now": 0},
+    {"holder": "h1", "task": "t0", "now": 1},
+    {"holder": "h0", "task": "t1", "now": 2},
+    {"holder": "h1", "task": "t1", "now": 7}
+  ],
+  "epoch_bump": 1
+}
