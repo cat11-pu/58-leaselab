@@ -19,10 +19,10 @@ for (const step of spec.steps || []) {
 const cleaned = sweep(leases, spec.now, spec.progress || {});
 const view = render(spec);
 
-emit("每次申请是否授予 =", JSON.stringify(granted));
-emit("每个任务的持有者 =", JSON.stringify(view.holders));
-emit("租约世代号 =", JSON.stringify(view.epochs));
-emit("回收的租约 =", JSON.stringify(cleaned.reclaimed));
+emit("每次申请是否授予 =", granted);
+emit("每个任务的持有者 =", view.holders);
+emit("租约世代号 =", view.epochs);
+emit("回收的租约 =", cleaned.reclaimed);
 emit("重复处理的次数 =", cleaned.replayed);
 emit("当前时刻 =", spec.now);
 emit("租约上限 =", spec.ttl);
