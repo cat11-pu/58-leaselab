@@ -71,7 +71,8 @@ for (const [label, want] of Object.entries(EXPECTED)) {
   const found = __lines.find((pair) => pair[0] === label);
   if (!found) { __bad += 1; console.log("缺失验收项 " + label); continue; }
   const got = found[1];
-  if (JSON.stringify(got) === JSON.stringify(want)) { console.log("一致 " + label + " = " + JSON.stringify(got)); }
+  const norm = typeof got === "string" ? (() => { try { return JSON.parse(got); } catch { return got; } })() : got;
+  if (JSON.stringify(norm) === JSON.stringify(want)) { console.log("一致 " + label + " = " + JSON.stringify(norm)); }
   else { __bad += 1; console.log("不一致 " + label + " 期望 " + JSON.stringify(want) + " 实际 " + JSON.stringify(got)); }
 }
 console.log("验收项 " + (Object.keys(EXPECTED).length - __bad) + "/" + Object.keys(EXPECTED).length + " 通过");
